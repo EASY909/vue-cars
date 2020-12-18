@@ -1,11 +1,9 @@
 // 后台框架尺寸
 // 菜单宽度
-$navMenu: 250px;
-$navMenuMin: 64px;
-$layoutHeader: 75px;
+
 
 // 主颜色
-$mainColor: #f56c6c;
+$mainColor: #34393f;
 
 
 @mixin webkit($type, $value) {
@@ -19,8 +17,8 @@ $mainColor: #f56c6c;
 @mixin labelDom($align, $width, $line-height:"normal") {
   label {
     float: left;
-    line-height:  $line-height+px;
-    width:  $width+px;
+    line-height: $line-height+px;
+    width: $width+px;
     text-align: $align;
   }
 

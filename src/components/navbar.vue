@@ -1,42 +1,31 @@
 <!--  -->
 <template>
-  <div>
-    <div id="user" :class="{ open: show }">
-      <!-- <div id="user" :class="[show ? 'open' : '']"> -->
-      <router-view />
-    </div>
-    <Map />
-    <Cars />
-    <Navbar />
+  <div class="navbar">
+    <li><i class="icon icon-help">?</i></li>
+    <li><i class="icon icon-search">?</i></li>
+    <li><a href="javascript:;" class="car-button">选择车辆</a></li>
+    <li><i class="icon icon-search">?</i></li>
+    <li><i class="icon icon-search">?</i></li>
   </div>
 </template>
 
 <script>
-import Map from "../amap";
-import Cars from "../cars";
-import Navbar from "@c/navbar";
 export default {
   //import引入的组件需要注入到对象中才能使用
-  name: "index",
-  components: { Map, Cars, Navbar },
+  name: "navbar",
+  components: {},
   data() {
     //这里存放数据
-    return {
-      // show: false,
-    };
+    return {};
   },
   //监听属性 类似于data概念
-  computed: {
-    show() {
-      const router = this.$route;
-      return router.name === "Index" ? false : true;
-    },
-  },
+  computed: {},
   //监控data中的数据变化
   //方法集合
   methods: {},
   //生命周期 - 创建完成（可以访问当前this实例）
   beforeCreate() {}, //生命周期 - 创建之前
+  watch: {},
   created() {},
   beforeMount() {}, //生命周期 - 挂载之前
   //生命周期 - 挂载完成（可以访问DOM元素）
@@ -51,17 +40,31 @@ export default {
 </script>
 <style lang='scss' scoped>
 //@import url(); 引入公共css类
-#user {
+.navbar {
   position: fixed;
-  top: 0;
-  right: -600px;
-  bottom: 0;
-  width: 410px;
-  background-color: #34393f;
-  z-index: 200;
-  transition: all 0.3s ease 0s;
-  &.open {
-    right: 0px;
+  left: 0;
+  right: 0;
+  bottom: 86px;
+  text-align: center;
+  z-index: 10;
+  li {
+    display: inline-block;
+  }
+  .icon {
+    vertical-align: middle;
+    margin: 0 17px;
+    cursor: pointer;
+  }
+  .car-button {
+    display: inline-block;
+    width: 240px;
+    height: 84px;
+    border-radius: 100px;
+    line-height: 84px;
+    text-align: center;
+    color: #fff;
+    font-size: 26px;
+    background-color: $mainColor;
   }
 }
 </style>
