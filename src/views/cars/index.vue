@@ -1,7 +1,18 @@
 <!--  -->
 <template>
   <div class="index-wrap">
-    <span @click="user">cars</span>
+    <section class="cars-item">
+      <header>
+        <h4 class="cars-logo">
+          <img src="../../assets/images/ford.png" alt="Mustang 2019款" />
+          <span class="name">Mustang 2019款</span>
+        </h4>
+        <p class="attr">新能源汽车 5座</p>
+      </header>
+      <div class="cars-content"></div>
+      <footer></footer>
+    </section>
+    <span @click="user"></span>
   </div>
 </template>
 
@@ -45,7 +56,41 @@ export default {
 .index-wrap {
   position: fixed;
   left: 0;
-  top: 0;
-  z-index: 100;
+  right: 0;
+  bottom: 94px;
+  z-index: 11;
+}
+.cars-item {
+  width: 505px;
+  height: 257px;
+  margin: auto;
+  padding: 30px;
+  background-color: #fff;
+  border-radius: 24px;
+  @include webkit(box-shadow, 0 0 18px 0 rgba(0, 0, 0, 0.2));
+  @include webkit(box-sizing, border-box);
+  header {
+    display: flex;
+    h4,
+    p {
+      flex: 1;
+    }
+  }
+}
+.cars-logo {
+  img {
+    display: inline-block;
+    height: 60px;
+    vertical-align: middle;
+    margin-right: 10px;
+  }
+  .name {
+    font-size: 16px;
+  }
+}
+.attr {
+  text-align: right;
+  opacity: 0.5;
+  line-height: 60px;
 }
 </style>

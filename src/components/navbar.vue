@@ -1,11 +1,11 @@
 <!--  -->
 <template>
   <div class="navbar">
-    <li><i class="icon icon-help">?</i></li>
-    <li><i class="icon icon-search">?</i></li>
+    <li><i class="icon icon-help"></i></li>
+    <li><i class="icon icon-search"></i></li>
     <li><a href="javascript:;" class="car-button">选择车辆</a></li>
-    <li><i class="icon icon-search">?</i></li>
-    <li><i class="icon icon-search">?</i></li>
+    <li><i class="icon icon-location"></i></li>
+    <li><i class="icon icon-user"></i></li>
   </div>
 </template>
 
@@ -56,6 +56,7 @@ export default {
     cursor: pointer;
   }
   .car-button {
+    margin: 0 17px;
     display: inline-block;
     width: 240px;
     height: 84px;

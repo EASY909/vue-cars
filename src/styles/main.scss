@@ -8,5 +8,21 @@ i[class^=icon] {
     border-radius: 22px;
     background-color: $mainColor;
     background-repeat: no-repeat;
+    background-position: center;
+}
 
+.icon-help {
+    background-image: url(~@/assets/images/wenhao.png);
+}
+
+.icon-search {
+    background-image: url(~@/assets/images/search.png);
+}
+
+.icon-location {
+    background-image: url(~@/assets/images/location.png);
+}
+
+.icon-user {
+    background-image: url(~@/assets/images/user.png);
 }
