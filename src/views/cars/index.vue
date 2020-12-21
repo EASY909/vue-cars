@@ -1,57 +1,43 @@
 <!--  -->
 <template>
-  <div class="index-wrap">
-    <section class="cars-item">
-      <header>
-        <h4 class="cars-logo">
-          <img src="../../assets/images/ford.png" alt="Mustang 2019款" />
-          <span class="name">Mustang 2019款</span>
-        </h4>
-        <p class="attr">新能源汽车 5座</p>
-      </header>
-      <div class="cars-content">
-        <div class="info">
-          <div>
-            <h4 class="cars-number">皖 AE86</h4>
-            <div>
-              <ul class="cars-electric active-li-2">
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-              </ul>
-              <p class="distance">
-                <sub>约</sub>
-                <strong>600</strong>
-                <sub>KM</sub>
-              </p>
-            </div>
-          </div>
-        </div>
-        <img src="../../assets/images/pic001.jpg" alt="" />
-      </div>
-      <footer>
-        <a href="javascript: void(0);" class="parking-link">停车场</a>
-      </footer>
-    </section>
+  <div class="cars-wrap">
+    <div class="cars-swiper-wrap">
+      <swiper class="swiper" :options="swiperOption">
+        <swiper-slide><CarsList /></swiper-slide>
+        <swiper-slide><CarsList /></swiper-slide>
+        <swiper-slide><CarsList /></swiper-slide>
+        <swiper-slide><CarsList /></swiper-slide>
+        <swiper-slide><CarsList /></swiper-slide>
+        <swiper-slide><CarsList /></swiper-slide>
+      </swiper>
+      <div class="swiper-button-prev" slot="button-prev"></div>
+      <div class="swiper-button-next" slot="button-next"></div>
+    </div>
     <span @click="user"></span>
   </div>
 </template>
 
 <script>
+import CarsList from "@c/carsList";
+import { Swiper, SwiperSlide } from "vue-awesome-swiper";
+import "swiper/swiper-bundle.css";
+
 export default {
   //import引入的组件需要注入到对象中才能使用
   name: "cars",
-  components: {},
+  components: { Swiper, SwiperSlide, CarsList },
   data() {
     //这里存放数据
-    return {};
+    return {
+      swiperOption: {
+        slidesPerView: 3,
+        spaceBetween: 50,
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+      },
+    };
   },
   //监听属性 类似于data概念
   computed: {},
@@ -81,120 +67,71 @@ export default {
 </script>
 <style lang='scss' scoped>
 //@import url(); 引入公共css类
-.index-wrap {
+.cars-wrap {
   position: fixed;
   left: 0;
   right: 0;
   bottom: 94px;
   z-index: 11;
 }
-.cars-item {
-  width: 505px;
-  height: 257px;
-  margin: auto;
-  padding: 30px;
-  padding-top: 10px;
-  background-color: #fff;
-  border-radius: 24px;
-  @include webkit(box-shadow, 0 0 18px 0 rgba(0, 0, 0, 0.2));
-  @include webkit(box-sizing, border-box);
-  header {
-    display: flex;
-    h4,
-    p {
-      flex: 1;
-    }
-  }
-}
-.cars-logo {
-  img {
-    display: inline-block;
-    height: 60px;
-    vertical-align: middle;
-    margin-right: 10px;
-  }
-  .name {
-    font-size: 16px;
-  }
-}
-.attr {
-  text-align: right;
-  opacity: 0.5;
-  line-height: 60px;
-}
-.cars-content {
+.cars-swiper-wrap {
   position: relative;
-  margin: 5px 0 7px;
-  @extend %clearfix;
-  img {
-    float: right;
-    height: 120px;
+  padding: 0 155px;
+  .swiper-container {
+    overflow: initial;
   }
-  .info {
-    display: flex;
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    align-items: center;
-  }
-  .cars-number {
-    font-size: 18px;
-  }
-  .cars-electric {
-    padding-top: 10px;
-    display: inline-block;
-    li {
-      display: inline-block;
-      width: 7px;
-      height: 24px;
-      margin-right: 3px;
-      background-color: #e1e1e1;
-      border-radius: 100px;
+  .swiper-button-prev,
+  .swiper-button-next {
+    top: 50%;
+    width: 60px;
+    height: 100px;
+    margin-top: -50px;
+    border-radius: 100px;
+    background-color: #fff;
+    outline: none;
+    @include webkit(box-shadow, 0 0 18px 0 rgba(0, 0, 0, 0.2));
+    @include webkit(transition, all 0.3s ease 0s);
+    &.swiper-button-disabled {
+      opacity: 1;
     }
-    @for $i from 1 through 10 {
-      &.active-li-#{$i} {
-        li:nth-child(-n + #{$i}) {
-          @include webkitA(background, linear-gradient(#17a8fa, #108dd9));
-        }
+    &:hover {
+      background-color: $color-main;
+      &:after {
+        border-top: 3px solid $color-blur;
+      }
+    }
+    &:after {
+      content: "";
+      width: 14px;
+      height: 14px;
+      border-top: 3px solid #000;
+    }
+  }
+  .swiper-button-prev {
+    left: 53px;
+    &:after {
+      border-left: 3px solid #000;
+      margin-left: 5px;
+      @include webkit(transform, rotate(-45deg));
+    }
+    &:hover {
+      &:after {
+        border-left: 3px solid $color-blur;
       }
     }
   }
-}
-.distance {
-  margin-left: 5px;
-  display: inline-block;
-  strong {
-    margin: 0 3px;
-    font-size: 22px;
-  }
-  sub {
-    position: relative;
-    top: -2px;
-  }
-  sub:first-of-type {
-    opacity: 0.6;
-  }
-}
-.parking-link {
-  position: relative;
-  display: block;
-  border-top: 1px solid #e1e1e1;
-  color: $color-main;
-  opacity: 0.8;
-  line-height: 53px;
-  &:after {
-    content: "";
-    position: absolute;
-    right: 0;
-    top: 50%;
-    width: 8px;
-    height: 8px;
-    margin-top: -8px;
-    border-top: 1px solid #d6d7d9;
-    border-right: 1px solid #d6d7d9;
-    @include webkit(transform, rotate(45deg));
+  .swiper-button-next {
+    right: 53px;
+    &:after {
+      border-right: 3px solid #000;
+      margin-right: 5px;
+      @include webkit(transform, rotate(45deg));
+    }
+    &:hover {
+      &:after {
+        border-right: 3px solid $color-blur;
+      }
+    }
   }
 }
 </style>
