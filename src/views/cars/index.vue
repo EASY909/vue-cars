@@ -3,10 +3,7 @@
   <div class="cars-wrap">
     <div class="cars-swiper-wrap">
       <swiper class="swiper" :options="swiperOption">
-        <swiper-slide><CarsList /></swiper-slide>
-        <swiper-slide><CarsList /></swiper-slide>
-        <swiper-slide><CarsList /></swiper-slide>
-        <swiper-slide><CarsList /></swiper-slide>
+        <swiper-slide><CarsList height="600px" /></swiper-slide>
         <swiper-slide><CarsList /></swiper-slide>
         <swiper-slide><CarsList /></swiper-slide>
       </swiper>
