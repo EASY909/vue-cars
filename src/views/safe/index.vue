@@ -1,18 +1,24 @@
 <!--  -->
 <template>
-  <div class="navbar">
-    <li><i class="icon icon-help"></i></li>
-    <li><i class="icon icon-search"></i></li>
-    <li><a href="javascript:;" class="car-button">选择车辆</a></li>
-    <li><i class="icon icon-location"></i></li>
-    <li><i class="icon icon-user"></i></li>
+  <div class="user-container">
+    <Back column="安全设置" />
+    <ul class="group-links">
+      <router-link to="/password" tag="a" class="arrow">
+        修改登录密码
+      </router-link>
+      <router-link to="/capital" tag="a" class="arrow">
+        设置资金密码
+      </router-link>
+      <router-link to="/phone" tag="a" class="arrow"> 绑定手机号 </router-link>
+      <router-link to="/bank" tag="a" class="arrow"> 绑定银行号 </router-link>
+    </ul>
   </div>
 </template>
 
 <script>
 export default {
   //import引入的组件需要注入到对象中才能使用
-  name: "navbar",
+  name: "safe",
   components: {},
   data() {
     //这里存放数据
@@ -40,32 +46,4 @@ export default {
 </script>
 <style lang='scss' scoped>
 //@import url(); 引入公共css类
-.navbar {
-  position: fixed;
-  left: 0;
-  right: 0;
-  bottom: 86px;
-  text-align: center;
-  z-index: 10;
-  li {
-    display: inline-block;
-  }
-  .icon {
-    vertical-align: middle;
-    margin: 0 17px;
-    cursor: pointer;
-  }
-  .car-button {
-    margin: 0 17px;
-    display: inline-block;
-    width: 240px;
-    height: 84px;
-    border-radius: 100px;
-    line-height: 84px;
-    text-align: center;
-    color: #fff;
-    font-size: 26px;
-    background-color: $mainColor;
-  }
-}
 </style>

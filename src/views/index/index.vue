@@ -6,7 +6,7 @@
       <router-view />
     </div>
     <Map />
-    <Cars />
+    <!-- <Cars /> -->
     <Navbar />
   </div>
 </template>
@@ -40,7 +40,16 @@ export default {
   created() {},
   beforeMount() {}, //生命周期 - 挂载之前
   //生命周期 - 挂载完成（可以访问DOM元素）
-  mounted() {},
+  mounted() {
+    document.addEventListener("mouseup", (e) => {
+      const userCon = document.getElementById("user");
+      if (userCon && !userCon.contains(e.target)) {
+        this.$router.push({
+          name: "Index",
+        });
+      }
+    });
+  },
   beforeUpdate() {}, //生命周期 - 更新之前
   updated() {}, //生命周期 - 更新之后 refs可以取到
   beforeDestroy() {}, //生命周期 - 销毁之前

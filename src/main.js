@@ -8,8 +8,11 @@ import "./plugin/amap";
 
 Vue.config.productionTip = false;
 
-
-
+// 全局组件
+import "./components/back";
+import ElementUI from 'element-ui';
+import 'element-ui/lib/theme-chalk/index.css';
+Vue.use(ElementUI);
 new Vue({
   router,
   store,

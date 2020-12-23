@@ -4,7 +4,7 @@
     <section class="cars-item">
       <header>
         <h4 class="cars-logo">
-          <img src="../assets/images/ford.png" alt="Mustang 2019款" />
+          <img src="../../assets/images/ford.png" alt="Mustang 2019款" />
           <span class="name">Mustang 2019款</span>
         </h4>
         <p class="attr">新能源汽车 5座</p>
@@ -34,7 +34,7 @@
             </div>
           </div>
         </div>
-        <img src="../assets/images/pic001.jpg" alt="" />
+        <img src="../../assets/images/pic001.jpg" alt="" />
       </div>
       <footer>
         <a href="javascript: void(0);" class="parking-link">停车场</a>
@@ -48,12 +48,12 @@
         </h4>
         <header>
           <h4 class="cars-logo">
-            <img src="../assets/images/ford.png" alt="Mustang 2019款" />
+            <img src="../../assets/images/ford.png" alt="Mustang 2019款" />
             <span class="name">Mustang 2019款</span>
           </h4>
           <p class="attr">新能源汽车 5座</p>
         </header>
-        <img src="../assets/images/pic001.jpg" alt="" width="100%" />
+        <img src="../../assets/images/pic001.jpg" alt="" width="100%" />
         <div class="clearfix">
           <div class="pull-left fs-24">
             <h4 class="cars-number">皖 AE86</h4>
